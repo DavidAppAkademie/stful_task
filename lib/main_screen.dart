@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:stful_task/counter_card.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  int c1 = 0;
+  int c2 = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,11 +19,23 @@ class MainScreen extends StatelessWidget {
         child: Column(
           spacing: 16,
           children: [
-            CounterCard(),
-            CounterCard(),
-            CounterCard(),
-            CounterCard(),
-            CounterCard(),
+            CounterCard(
+              c: c1,
+              onPressed: () {
+                setState(() {
+                  c1++;
+                });
+              },
+            ),
+            CounterCard(
+              c: c2,
+              onPressed: () {
+                setState(() {
+                  c2++;
+                });
+              },
+            ),
+            Text('Summe: ${c1 + c2}'),
           ],
         ),
       ),
