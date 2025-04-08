@@ -9,8 +9,8 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int c1 = 0;
-  int c2 = 0;
+  int _value1 = 0;
+  int _value2 = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -20,22 +20,20 @@ class _MainScreenState extends State<MainScreen> {
           spacing: 16,
           children: [
             CounterCard(
-              c: c1,
-              onPressed: () {
+              onPressed: (newValue) {
                 setState(() {
-                  c1++;
+                  _value1 = newValue;
                 });
               },
             ),
             CounterCard(
-              c: c2,
-              onPressed: () {
+              onPressed: (newValue) {
                 setState(() {
-                  c2++;
+                  _value2 = newValue;
                 });
               },
             ),
-            Text('Summe: ${c1 + c2}'),
+            Text('Summe: ${_value1 + _value2}'),
           ],
         ),
       ),

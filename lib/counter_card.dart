@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CounterCard extends StatefulWidget {
-  final int c;
-  final VoidCallback? onPressed;
-  const CounterCard({super.key, this.onPressed, required this.c});
+  final Function(int newValue) onPressed;
+  const CounterCard({super.key, required this.onPressed});
 
   @override
   State<CounterCard> createState() => CounterCardState();
 }
 
 class CounterCardState extends State<CounterCard> {
+  int c = 0;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -17,9 +17,13 @@ class CounterCardState extends State<CounterCard> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Text('Zähler: ${widget.c}'),
+            Text('Zähler: $c'),
             ElevatedButton(
-              onPressed: widget.onPressed,
+              onPressed: () {
+                setState(() {
+                  widget.onPressed(++c);
+                });
+              },
               child: const Text('Click Me'),
             ),
           ],
