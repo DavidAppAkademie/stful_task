@@ -36,26 +36,6 @@ class _MainScreenState extends State<MainScreen> {
             );
           },
         ),
-        // child: Column(
-        //   spacing: 16,
-        //   children: [
-        //     CounterCard(
-        //       onPressed: (newValue) {
-        //         setState(() {
-        //           _value1 = newValue;
-        //         });
-        //       },
-        //     ),
-        //     CounterCard(
-        //       onPressed: (newValue) {
-        //         setState(() {
-        //           _value2 = newValue;
-        //         });
-        //       },
-        //     ),
-        //     Text('Summe: ${_value1 + _value2}'),
-        //   ],
-        // ),
       ),
     );
   }
